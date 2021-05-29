@@ -1,0 +1,17 @@
+.badge {
+  background-color: $gray-lighter;
+  font-size: 0.7rem;
+  display: inline-block;
+  text-align: center;
+  margin-right: 2px;
+  vertical-align: top;
+  width: 5rem;
+  font-weight: bold;
+  padding: 2px 0;
+  border-radius: 2px;
+  color: $white;
+
+  &.is-airport {
+    background-color: $red;
+  }
+}
