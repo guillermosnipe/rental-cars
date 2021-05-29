@@ -8,7 +8,7 @@ const CarSearch = ({ title, subtitle, cssClasses, placeholder }) => {
         <h3>{subtitle || "Let’s find your ideal car"}</h3>
         <div className="mt-2">
           <input type="text" placeholder={placeholder || "Pick-up Location"} className="mr-2"/>
-          <button className="primary">Search</button>
+          <button className="primary is-clickable">Search</button>
         </div>
       </div>
     </section>
