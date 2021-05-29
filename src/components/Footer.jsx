@@ -1,9 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const Footer = () => {
+const Footer = ({
+  cssClasses
+}) => {
   return (
-    <p>Copyright © 2021 Booking.com Transport Limited trading as Rentalcars.com. All rights reserved</p>
-  )
-}
+    <footer className={cssClasses}>
+      <p>
+        Copyright © 2021 Booking.com Transport Limited trading as
+        Rentalcars.com. All rights reserved
+      </p>
+    </footer>
+  );
+};
 
 export default Footer;
