@@ -18,7 +18,7 @@
 
   input {
     height: auto;
-    margin: 0;
+    margin-right: 0.25rem;
     padding: calc(4px*2);
     color: $gray-darkest;
     line-height: 24px;
@@ -50,7 +50,7 @@
   border-radius: 4px;
   background-color: $white;
   border: 1px solid $black;
-  width: 95%;
+  width: 94%;
 
   .search-result-item {
     padding: 8px;
@@ -63,6 +63,10 @@
 
     .location-details > div {
       padding-left: 5px;
+    }
+
+    .location-details > div:first-child {
+      font-size: 0.825rem;
     }
 
     &:not(:last-child) {
