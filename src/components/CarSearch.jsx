@@ -28,10 +28,14 @@ const CarSearch = ({
       return;
     }
 
-    if (searchTermValue.length > 1) {
+    if (searchTermValue.length) {
       callSearchAPI(searchTermValue).then(
         (searchResults) => {
-          setReturnedSearchResults(searchResults.data.results.docs);
+          if(searchResults.data.results.docs.length > 0) {
+            setReturnedSearchResults(searchResults.data.results.docs);
+          } else {
+            setReturnedSearchResults([]);
+          }
         }
       );
     } else {
@@ -42,19 +46,21 @@ const CarSearch = ({
   return (
     <section className={cssClasses ? 'car-search ' + cssClasses : 'car-search'}>
       <h2 className="has-text-centered column is-full">{title}</h2>
-      <div className="car-search__search-box column is-two-thirds-desktop">
+      <div className="car-search__search-box column is-one-third-desktop">
         <h3>{subtitle || "Let’s find your ideal car"}</h3>
-        <div className="mt-1 columns is-mobile is-multiline">
-          <div data-role="search-results-input" className="column is-4-desktop is-full-mobile is-relative">
+        <div className="columns is-mobile is-multiline mt-1">
+          <div data-role="search-results-input" className="column is-9-desktop is-full-tablet is-full-mobile is-relative">
             <input 
               type="text"
               placeholder={placeholder || "Pick-up Location"}
               className="mr-2"
               onChange={handleSearchTermChange}
             />
-            <SearchResultsDropdown results={returnedSearchResults} />
+            {
+              returnedSearchResults.length > 0 && <SearchResultsDropdown results={returnedSearchResults} />
+            }
           </div>
-          <div data-role="search-results-button" className="column is-2-desktop is-full-mobile">
+          <div data-role="search-results-button" className="column is-3-desktop is-full-tablet is-full-mobile">
             <button className="primary is-clickable">Search</button>
           </div>
         </div>

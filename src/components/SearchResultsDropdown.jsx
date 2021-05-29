@@ -7,15 +7,17 @@ const SearchResultsDropdown = ({
 
   const getLocationType = (locationID) => {
 
-    const _locationID = locationID.toLowerCase();
+    const _locationID = locationID?.toLowerCase();
     
     const dictionary = {
-      a: 'Airport',
-      c: 'City',
-      d: 'District'
+      a: 'airport',
+      c: 'city',
+      d: 'district'
     }
 
-    return dictionary[_locationID];
+    const locationType = dictionary[_locationID];
+
+    return locationType ? locationType : undefined;
   }
 
   const getCityRegionCountry = ({city, region, country}) => {
@@ -29,19 +31,18 @@ const SearchResultsDropdown = ({
     <div className="car-search__search-results-list">
       <ul>
         {
-         results?.map(result => 
+         results?.map(result =>
           <li
-            key={result.bookingId}
+            key={result.placeKey}
             className="search-result-item"
           >
             <div className="cluster is-vcentered">
-              <span className="badge">{getLocationType(result.placeType)}</span>
+              <span className={getLocationType(result.placeType) ? "badge is-" + getLocationType(result.placeType) + ' is-capitalized': '' }>{getLocationType(result.placeType)}</span>
               <div className="location-details is-inline-block">
-                <div>{result.name}</div>
+                <div><strong>{result.name} {result.placeType === "A" && `(${result.iata})`}</strong></div>
                 <div>{getCityRegionCountry(result)}</div>
               </div>
             </div>
-              
           </li>
          )
         }

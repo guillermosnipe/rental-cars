@@ -8,10 +8,18 @@
   width: 5rem;
   font-weight: bold;
   padding: 2px 0;
-  border-radius: 2px;
+  border-radius: 4px;
   color: $white;
 
   &.is-airport {
-    background-color: $red;
+    background-color: $red-darker;
+  }
+
+  &.is-city {
+    background-color: $blue;
+  }
+
+  &.is-district {
+    background-color: $green;
   }
 }
