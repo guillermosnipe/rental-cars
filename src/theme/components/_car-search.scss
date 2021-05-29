@@ -1,0 +1,47 @@
+.car-search {
+  background-color: $blue-light;
+
+  h2 {
+    color: $white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  input {
+    height: 41px;
+    margin: 0;
+    padding: calc(4px*2);
+    color: $gray-darkest;
+    font-weight: 400;
+    line-height: 24px;
+    background: $white;
+    border-radius: 4px;
+    appearance: none;
+    padding-left: calc(4px*8);
+    border: 1px solid $gray-lighter;
+    font-size: 14px;
+    width: 250px;
+  }
+
+  button {
+   padding: calc(4px*2) calc(4px*4);
+   border-radius: 4px;
+   background-color: $green;
+   color: $white;
+   border: none;
+   margin-left: 4px; // TODO: Remove. Use Columns instead.
+   height: 40px;
+   width: 160px;
+   font-size: 0.875rem;
+  }
+}
+
+.car-search__search-box {
+  background-color: $yellow;
+  border-radius: 8px;
+}
