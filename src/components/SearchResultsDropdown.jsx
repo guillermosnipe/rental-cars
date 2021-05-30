@@ -1,7 +1,8 @@
 import React from "react";
 
 const SearchResultsDropdown = ({
-  results
+  results,
+  cssClasses
 }) => {
 
   if(!results?.length) {
@@ -48,7 +49,7 @@ const SearchResultsDropdown = ({
   }
 
   return (
-    <div className="car-search__search-results-list">
+    <div className={"car-search__search-results-list " + cssClasses}>
       <ul>
         {
           results?.map(result =>
