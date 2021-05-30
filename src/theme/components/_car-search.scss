@@ -27,6 +27,11 @@
     border: 1px solid $gray-lighter;
     font-size: 14px;
     width: 100%;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgb(18 115 196 / 24%);
+    }
   }
 
   button {
@@ -51,7 +56,6 @@
     position: absolute;
     border-radius: 4px;
     border: 1px solid $black;
-    padding: 0 5px;
     background-color: $white;
     width: 95%;
 
