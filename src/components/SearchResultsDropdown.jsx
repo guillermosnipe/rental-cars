@@ -36,7 +36,7 @@ const SearchResultsDropdown = ({
          results?.map(result =>
           <li
             key={result.placeKey}
-            className="search-result-item"
+            className="search-result-item is-clickable"
           >
             <div className="cluster is-vcentered">
               <span className={getLocationType(result.placeType) ? "badge is-" + getLocationType(result.placeType) + ' is-capitalized': '' }>{getLocationType(result.placeType)}</span>

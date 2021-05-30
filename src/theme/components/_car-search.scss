@@ -57,6 +57,10 @@
     font-size: 0.8rem;
     display: list-item;
 
+    &:hover {
+      background-color: $blue-lighter;
+    }
+
     .badge {
       min-width: 5rem;
     }
