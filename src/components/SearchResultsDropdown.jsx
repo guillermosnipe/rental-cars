@@ -4,6 +4,10 @@ const SearchResultsDropdown = ({
   results
 }) => {
 
+  if(!results.length) {
+    return null;
+  }
+
   const getLocationType = (locationID) => {
     const _locationID = locationID?.toLowerCase();
     const dictionary = {
@@ -47,9 +51,9 @@ const SearchResultsDropdown = ({
     <div className="car-search__search-results-list">
       <ul>
         {
-        results?.map(result =>
-          <SearchResultItem result={result} key={result.placeKey} />
-        )
+          results?.map(result =>
+            <SearchResultItem result={result} key={result.placeKey} />
+          )
         }
       </ul>
     </div>

@@ -8,8 +8,10 @@ const SearchTerm = ({
   searchResults,
   placeholder
 }) => {
+
   return(
     <>
+      <label htmlFor="searchTermInput" className="is-sr-only">Enter the pick-up location</label>
       <input 
       type="text"
       placeholder={placeholder || "Pick-up Location"}
