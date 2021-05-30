@@ -10,6 +10,7 @@
   padding: 2px 0;
   border-radius: 4px;
   color: $white;
+  height: 100%;
 
   &.is-airport {
     background-color: $red-darker;
@@ -21,5 +22,14 @@
 
   &.is-district {
     background-color: $green;
+  }
+
+  &.is-station {
+    background-color: $yellow;
+    color: $black;
+  }
+
+  &.is-region {
+    background-color: $gray-darker;
   }
 }
