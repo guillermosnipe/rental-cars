@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import callSearchAPI from "../lib/api";
 
 // components
@@ -12,16 +13,20 @@ const CarSearch = ({ title, subtitle, cssClasses, placeholder }) => {
     setSearchTermValue(event.target.value);
   };
 
-  const fetchSearchResults = (searchTerm) => {
+  const fetchSearchResults = async (searchTerm) => {
+    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 500);
+
     if (searchTerm.length > 1) {
-      callSearchAPI(searchTerm).then((searchResults) => {
-        if (searchResults.data.results.numFound > 0) {
-          setReturnedSearchResults(searchResults.data.results.docs);
-        } else {
-          // If no search results were matched, the api returns the "empty" object.
-          setReturnedSearchResults(searchResults.data.results.docs);
-        }
-      });
+      
+      const searchResults = await searchAPI(searchTerm);
+
+      if (searchResults.data.results.numFound > 0) {
+        setReturnedSearchResults(searchResults.data.results.docs);
+      } else {
+        // If no search results were matched, the api returns the "empty" object.
+        setReturnedSearchResults(searchResults.data.results.docs);
+      }
+
     } else {
       setReturnedSearchResults([]);
     }
