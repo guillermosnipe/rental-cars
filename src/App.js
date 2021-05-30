@@ -7,7 +7,7 @@ import CarSearch from './components/CarSearch';
 function App() {
   return (
     <>
-      <Header title="Welcome to the app!" cssClasses="columns is-mobile is-centered px-4 mb-0" />
+      <Header title="RentalCars.com" cssClasses="columns is-mobile is-centered px-4 mb-0" />
       <CarSearch cssClasses="columns is mobile is-centered is-multiline p-5" title="Car Hire – Search, Compare &amp; Save"/>
       <Footer cssClasses="has-text-centered" />
     </>

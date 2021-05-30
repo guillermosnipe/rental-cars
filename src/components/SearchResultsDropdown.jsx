@@ -4,11 +4,12 @@ const SearchResultsDropdown = ({
   results
 }) => {
 
+  if(!results.length) {
+    return null;
+  }
 
   const getLocationType = (locationID) => {
-
     const _locationID = locationID?.toLowerCase();
-    
     const dictionary = {
       a: 'airport',
       c: 'city',
@@ -16,7 +17,6 @@ const SearchResultsDropdown = ({
       f: 'region',
       t: 'station'
     }
-
     const locationType = dictionary[_locationID];
 
     return locationType ? locationType : undefined;
@@ -26,32 +26,38 @@ const SearchResultsDropdown = ({
     const location = [city, region, country];
     const definedElements = location.filter( el => el );
 
-    return definedElements.join(", ");
+    return definedElements.length > 0 ? definedElements.join(", ") : '';
+  }
+
+  const SearchResultItem = ({ result }) => {
+
+    const placeType = getLocationType(result.placeType);
+     return (
+        <li
+            className="search-result-item is-clickable"
+          >
+          <div className="cluster is-vcentered">
+            <span className={ placeType ? "badge is-" + placeType + ' is-capitalized': '' }>{placeType}</span>
+            <div className="location-details is-inline-block">
+              <div><strong>{result.name} {result.placeType === "A" && `(${result.iata})`}</strong></div>
+              <div>{getCityRegionCountry(result)}</div>
+            </div>
+          </div>
+        </li>
+     )
   }
 
   return (
     <div className="car-search__search-results-list">
       <ul>
         {
-         results?.map(result =>
-          <li
-            key={result.placeKey}
-            className="search-result-item is-clickable"
-          >
-            <div className="cluster is-vcentered">
-              <span className={getLocationType(result.placeType) ? "badge is-" + getLocationType(result.placeType) + ' is-capitalized': '' }>{getLocationType(result.placeType)}</span>
-              <div className="location-details is-inline-block">
-                <div><strong>{result.name} {result.placeType === "A" && `(${result.iata})`}</strong></div>
-                <div>{getCityRegionCountry(result)}</div>
-              </div>
-            </div>
-          </li>
-         )
+          results?.map(result =>
+            <SearchResultItem result={result} key={result.placeKey} />
+          )
         }
       </ul>
     </div>
   )
- 
 };
 
 export default SearchResultsDropdown;

@@ -3,7 +3,6 @@ import axios from "axios";
 const SEARCH_API_URL = process.env.REACT_APP_SEARCH_API_URL;
 
 const callSearchAPI = async (searchTerm = '', numberOfResults = 6) => {
-  console.log(SEARCH_API_URL);
   
   const requestConfig = {
     baseURL: SEARCH_API_URL,
