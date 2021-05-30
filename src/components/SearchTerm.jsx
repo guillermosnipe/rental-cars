@@ -17,7 +17,7 @@ const SearchTerm = ({
   };
 
   const fetchSearchResults = async (searchTerm) => {
-    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 500);
+    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 750);
 
     if (searchTerm.length > 1) {
       
@@ -40,7 +40,6 @@ const SearchTerm = ({
 
   // Hook to manage the search term length and trigger the call if applies
   useEffect(() => {
-    // TODO: Understand how this works. Check the ref
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
