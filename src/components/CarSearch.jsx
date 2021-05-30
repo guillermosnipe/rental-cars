@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, useState } from "react";
 import callSearchAPI from '../lib/api';
 
 // components
-import SearchResultsDropdown from './SearchResultsDropdown';
+import SearchTerm from './SearchTerm';
 
 const CarSearch = ({
   title,
@@ -13,6 +13,7 @@ const CarSearch = ({
 
   const [searchTermValue, setSearchTermValue] = useState('');
   const [returnedSearchResults, setReturnedSearchResults] = useState([]);
+  const [numResults, setNumResults] = useState(0);
 
   const handleSearchTermChange = (event) => {
     setSearchTermValue(event.target.value);
@@ -31,15 +32,17 @@ const CarSearch = ({
     if (searchTermValue.length > 1) {
       callSearchAPI(searchTermValue).then(
         (searchResults) => {
-          if(searchResults.data.results.docs.length > 0) {
+          if(searchResults.data.results.numFound > 0) {
             setReturnedSearchResults(searchResults.data.results.docs);
+            setNumResults(searchResults.data.results.numFound);
           } else {
-            setReturnedSearchResults([]);
+            setReturnedSearchResults([{name: "No results found", key: 1}]);
           }
         }
       );
     } else {
       setReturnedSearchResults([]);
+      setNumResults(0);
     }
   }, [searchTermValue]);
 
@@ -50,15 +53,7 @@ const CarSearch = ({
         <h3>{subtitle || "Let’s find your ideal car"}</h3>
         <div className="columns is-mobile is-multiline mt-1">
           <div data-role="search-results-input" className="column is-9-desktop is-full-tablet is-full-mobile is-relative">
-            <input 
-              type="text"
-              placeholder={placeholder || "Pick-up Location"}
-              className="mr-2"
-              onChange={handleSearchTermChange}
-            />
-            {
-              returnedSearchResults.length > 0 && <SearchResultsDropdown results={returnedSearchResults} />
-            }
+            <SearchTerm handleSearchFn={handleSearchTermChange} searchResults={returnedSearchResults} placeholder={placeholder} />
           </div>
           <div data-role="search-results-button" className="column is-3-desktop is-full-tablet is-full-mobile">
             <button className="primary is-clickable">Search</button>
