@@ -44,8 +44,8 @@ const SearchTerm = ({
       firstUpdate.current = false;
       return;
     }
-
     fetchSearchResults(searchTermValue);
+
   }, [searchTermValue]);
 
   return(
@@ -57,7 +57,7 @@ const SearchTerm = ({
         className="mr-2"
         onChange={handleSearchTermChange}
         aria-label="Enter the pick-up location"
-        autcomplete="off"
+        autoComplete="off"
       />
       <SearchResultsDropdown results={returnedSearchResults} />
     </>
