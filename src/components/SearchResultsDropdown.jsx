@@ -4,7 +4,7 @@ const SearchResultsDropdown = ({
   results
 }) => {
 
-  if(!results.length) {
+  if(!results?.length) {
     return null;
   }
 

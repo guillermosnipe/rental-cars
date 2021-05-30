@@ -1,13 +1,53 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
+import callSearchAPI from "../lib/api";
 
 // components
 import SearchResultsDropdown from './SearchResultsDropdown';
 
 const SearchTerm = ({
-  handleSearchFn,
-  searchResults,
   placeholder
 }) => {
+
+  const [searchTermValue, setSearchTermValue] = useState("");
+  const [returnedSearchResults, setReturnedSearchResults] = useState([]);
+
+  const handleSearchTermChange = (event) => {
+    setSearchTermValue(event.target.value);
+  };
+
+  const fetchSearchResults = async (searchTerm) => {
+    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 500);
+
+    if (searchTerm.length > 1) {
+      
+      const searchResults = await searchAPI(searchTerm);
+
+      if (searchResults.data.results.numFound > 0) {
+        setReturnedSearchResults(searchResults.data.results.docs);
+      } else {
+        // If no search results were matched, the api returns the "empty" object.
+        setReturnedSearchResults(searchResults.data.results.docs);
+      }
+
+    } else {
+      setReturnedSearchResults([]);
+    }
+  };
+
+  // Storing a ref. This is going to tell us if this is the initial render.
+  const firstUpdate = useRef(true);
+
+  // Hook to manage the search term length and trigger the call if applies
+  useEffect(() => {
+    // TODO: Understand how this works. Check the ref
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+
+    fetchSearchResults(searchTermValue);
+  }, [searchTermValue]);
 
   return(
     <>
@@ -16,9 +56,9 @@ const SearchTerm = ({
       type="text"
       placeholder={placeholder || "Pick-up Location"}
       className="mr-2"
-      onChange={handleSearchFn}
+      onChange={handleSearchTermChange}
       />
-      <SearchResultsDropdown results={searchResults} />
+      <SearchResultsDropdown results={returnedSearchResults} />
     </>
   )
 }
