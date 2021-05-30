@@ -28,7 +28,7 @@ const CarSearch = ({
       return;
     }
 
-    if (searchTermValue.length) {
+    if (searchTermValue.length > 1) {
       callSearchAPI(searchTermValue).then(
         (searchResults) => {
           if(searchResults.data.results.docs.length > 0) {
@@ -46,7 +46,7 @@ const CarSearch = ({
   return (
     <section className={cssClasses ? 'car-search ' + cssClasses : 'car-search'}>
       <h2 className="has-text-centered column is-full">{title}</h2>
-      <div className="car-search__search-box column is-one-third-desktop">
+      <div className="car-search__search-box column is-one-third-desktop is-full-mobile">
         <h3>{subtitle || "Let’s find your ideal car"}</h3>
         <div className="columns is-mobile is-multiline mt-1">
           <div data-role="search-results-input" className="column is-9-desktop is-full-tablet is-full-mobile is-relative">
