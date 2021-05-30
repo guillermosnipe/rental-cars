@@ -53,10 +53,12 @@ const SearchTerm = ({
     <>
       <label htmlFor="searchTermInput" className="is-sr-only">Enter the pick-up location</label>
       <input 
-      type="text"
-      placeholder={placeholder || "Pick-up Location"}
-      className="mr-2"
-      onChange={handleSearchTermChange}
+        type="text"
+        placeholder={placeholder || "Pick-up Location"}
+        className="mr-2"
+        onChange={handleSearchTermChange}
+        aria-label="Enter the pick-up location"
+        autcomplete="off"
       />
       <SearchResultsDropdown results={returnedSearchResults} />
     </>
