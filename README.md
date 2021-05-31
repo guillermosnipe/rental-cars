@@ -9,6 +9,8 @@ I went for the safe bet, and used `Create React App` for scaffolding it. I also 
 
 I've used Bulma for the CSS part and Sass, why Sass? Because of the flexibility that it gives you when it comes to building themes, and separating the concerns. I've made use of the `is-sr-only` class which hides the elements properly (It basically removes the element visually, but it doesn't remove it from the markup).
 
+I've worked during the weekend on this assignment 10 hs approx (Unfortunately my job's commitments doesnt allow me to do much more), but I spent around 5 hours during the week studying react and reading some documentation.
+
 ## Considerations
 
 ### Issues
