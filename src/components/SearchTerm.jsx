@@ -17,8 +17,14 @@ const SearchTerm = ({
     setSearchTermValue(event.target.value);
   };
 
+  const handleOnFocus = () => {
+    if (returnedSearchResults.length > 0 && isHidden) {
+      setIsHidden(false);
+    }
+  }
+
   const fetchSearchResults = async (searchTerm) => {
-    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 750);
+    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 350);
 
     if (searchTerm.length > 1) {
       
@@ -83,6 +89,7 @@ const SearchTerm = ({
         onChange={handleSearchTermChange}
         aria-label="Enter the pick-up location"
         autoComplete="off"
+        onFocus={handleOnFocus}
       />
       <SearchResultsDropdown results={returnedSearchResults} cssClasses={isHidden ? "is-hidden" : ""} />
     </div>
