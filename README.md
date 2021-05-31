@@ -14,7 +14,7 @@ I've used Bulma for the CSS part and Sass, why Sass? Because of the flexibility 
 ### Issues
 
 * Even when I've implemented a tiny debouncing library it doesn't seem to be working properly.
-* I wanted to introduce the `distinctUntilChanged` functionality (to prevent requests from being triggered if the last searchTerm is exactly the same from the one that will trigger the upcoming request) but I haven't found the "react" way of doing it. After this weekend working on this app, I think that implementing RxJS wouldn't be a bad idea. (Having RxJS already there in Angular is one of the things that I like from Angular).
+* I wanted to add the `distinctUntilChanged` functionality (to prevent requests from being triggered if the last searchTerm is exactly the same from the one that will trigger the upcoming request) but I haven't found the "react" way of doing it. After this weekend working on this app, I think that implementing RxJS wouldn't be a bad idea. (Having RxJS already there in Angular is one of the things that I like from Angular).
 
 ### Things to improve
 
