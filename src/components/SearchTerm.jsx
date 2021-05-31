@@ -12,6 +12,7 @@ const SearchTerm = ({
   const [searchTermValue, setSearchTermValue] = useState("");
   const [returnedSearchResults, setReturnedSearchResults] = useState([]);
   const [isHidden, setIsHidden] = useState(false);
+  const searchAPI = AwesomeDebouncePromise(callSearchAPI, 750);
 
   const handleSearchTermChange = (event) => {
     setSearchTermValue(event.target.value);
@@ -24,7 +25,6 @@ const SearchTerm = ({
   }
 
   const fetchSearchResults = async (searchTerm) => {
-    const searchAPI = AwesomeDebouncePromise(callSearchAPI, 350);
 
     if (searchTerm.length > 1) {
       
