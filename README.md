@@ -29,9 +29,11 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 
 ## Installing the app
 
-- Prerequisites:
+### Prerequisites:
  * Install Node.js (v12 at least).
  * Install [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable) 
+
+### Instructions
 
 * Download the repo
 * Install the deps using `yarn install`
