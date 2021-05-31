@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Booking.com Tech Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Hello, as Booking.com uses React as part of its Tech Stack and I'm an Angular Developer, I did my best to deliver the app using react. I've used Jest for the tests.
+I was able to create components tests, but I'm still struggling with jest.spyOn so I was not able to test the data fetching with mocks.
 
-In the project directory, you can run:
+I went for the safe bet, and used `Create React App` for scaffolding it. I also deployed this app into netlify (https://rental-cars.netlify.app/), you can also find it there.
 
-### `yarn start`
+I've used Bulma for the CSS part and Sass, why Sass? Because of the flexibility that it gives you when it comes to building themes, and separating the concerns. I've made use of the `is-sr-only` class which hides the elements properly (It basically removes the element visually, but it doesn't remove it from the markup).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Considerations
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Issues
 
-### `yarn test`
+* Even when I've implemented a tiny debouncing library it doesn't seem to be working properly.
+* I wanted to introduce the `distinctUntilChanged` functionality (to prevent requests from being triggered if the last searchTerm is exactly the same from the one that will trigger the upcoming request) but I haven't found the "react" way of doing it. After this weekend working on this app, I think that implementing RxJS wouldn't be a bad idea. (Having RxJS already there in Angular is one of the things that I like from Angular).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Things to improve
 
-### `yarn build`
+* UX: Adding the svg to the imput and a spinner image to the input based on the state `isLoading` property to give visual clues to the user about what the site is doing.
+* Hooks and fetching data: It seems that I need to investigate way more, how the hooks and setting model properties inside a hook affect the performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Final words
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I just didn't want to deliver this App using Angular. I moved myself out of the comfort zone and investigated, learned and executed a react project. I know it has some issues, but I can learn how to fix them. Don't hesitate to contact me if you have any questions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installing the app
 
-### `yarn eject`
+- Prerequisites:
+ * Install Node.js (v12 at least).
+ * Install [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable) 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Download the repo
+* Install the deps using `yarn install`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running the app locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Executing `yarn install` will start the app using the default settings (`http://localhost:3000`);
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Testing the App
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* `yarn test` will run the tests.
