@@ -16,6 +16,7 @@ const SearchResultsDropdown = ({
       c: 'city',
       d: 'district',
       f: 'region',
+      p: 'region',
       t: 'station'
     }
     const locationType = dictionary[_locationID];

@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import AwesomeDebouncePromise from "awesome-debounce-promise";
 import callSearchAPI from "../lib/api";
+import debounce from 'debounce-promise-with-cancel'
 
 // components
 import SearchResultsDropdown from "./SearchResultsDropdown";
-const searchAPI = AwesomeDebouncePromise(callSearchAPI, 350);
+const searchAPI = debounce(callSearchAPI, 500)
 
 const SearchTerm = ({ placeholder }) => {
   const [searchTermValue, setSearchTermValue] = useState("");
@@ -13,12 +13,6 @@ const SearchTerm = ({ placeholder }) => {
 
   const handleSearchTermChange = (event) => {
       setSearchTermValue(event.target.value);
-  };
-
-  const handleOnFocus = () => {
-    if (returnedSearchResults.length > 0 && isHidden) {
-      setIsHidden(false);
-    }
   };
 
   const fetchSearchResults = async (searchTerm) => {
@@ -40,7 +34,9 @@ const SearchTerm = ({ placeholder }) => {
     if (searchTermValue.length > 1) {
       fetchSearchResults(searchTermValue);
     } else {
+      searchAPI.cancel()
       setReturnedSearchResults([]);
+      // setIsHidden(false);
     }
 
   }, [searchTermValue]);
@@ -56,6 +52,8 @@ const SearchTerm = ({ placeholder }) => {
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
           setIsHidden(true);
+        } else {
+          setIsHidden(false);
         }
       }
 
@@ -80,7 +78,6 @@ const SearchTerm = ({ placeholder }) => {
         onChange={handleSearchTermChange}
         aria-label="Enter the pick-up location"
         autoComplete="off"
-        onFocus={handleOnFocus}
       />
       <SearchResultsDropdown
         results={returnedSearchResults}
