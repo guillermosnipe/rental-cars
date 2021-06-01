@@ -23,6 +23,11 @@ I've worked during the weekend on this assignment 10 hs approx (Unfortunately my
 * UX: Adding the svg to the imput and a spinner image to the input based on the state `isLoading` property to give visual clues to the user about what the site is doing.
 * Hooks and fetching data: It seems that I need to investigate way more, how the hooks and setting model properties inside a hook affect the performance.
 
+** Update: **
+
+* SVG Added
+* Debouncing issue was fixed. The library was replaced with another one that supports cancelling to handle edge cases.
+
 ## Final words
 
 I just didn't want to deliver this App using Angular. I moved myself out of the comfort zone and investigated, learned and executed a react project. I know it has some issues, but I can learn how to fix them. Don't hesitate to contact me if you have any questions.
@@ -45,3 +50,22 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 ## Testing the App
 
 * `yarn test` will run the tests.
+
+
+### Changelog
+
+## 1.1.0
+
+### Fixed
+
+- Refactored code: I got rid of some code that was not needed, and refactored some other pieces of the app.
+- Debouncing functionality. The library was replaced, the new one also supports cancelling, this allowed me to manage some edge cases.
+- Search list dropdown: The logic that handles the dropdown visibility was improved.
+
+### Added
+
+- UX: Icon added to the input search
+
+## 1.0.0
+
+- Initial Release
