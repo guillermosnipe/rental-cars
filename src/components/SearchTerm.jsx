@@ -36,7 +36,6 @@ const SearchTerm = ({ placeholder }) => {
     } else {
       searchAPI.cancel()
       setReturnedSearchResults([]);
-      // setIsHidden(false);
     }
 
   }, [searchTermValue]);
