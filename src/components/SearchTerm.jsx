@@ -31,9 +31,7 @@ const SearchTerm = ({ placeholder }) => {
 
   // Hook to manage the search term length and trigger the call if applies
   useEffect(() => {
-
-    console.log(typeof searchTermValue);
-
+    
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
