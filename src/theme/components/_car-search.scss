@@ -50,6 +50,14 @@
   border-radius: 8px;
 }
 
+.search-term {
+  .icon {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+  }
+}
+
 .car-search__search-results-list {
 
   ul {
