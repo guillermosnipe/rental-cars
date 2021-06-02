@@ -18,8 +18,11 @@ const callSearchAPI = async (searchTerm = '', numberOfResults = 6) => {
   try {
     return await axios(requestConfig);
   } catch (err) {
-    console.error(`ERROR: The request can not be completed: ${err}`);
+    throw new Error(`The request can not be completed: ${err}`);
   }
 };
 
 export default callSearchAPI;
+export const testObject = {
+  callSearchAPI
+}
