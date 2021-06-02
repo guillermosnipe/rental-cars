@@ -52,15 +52,15 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 * `yarn test` will run the tests.
 
 
-### Changelog
+## Changelog
 
-## 1.1.1
+### 1.1.1
 
 ### Fixed
 
 - CSS search dropdown list width
 
-## 1.1.0
+### 1.1.0
 
 ### Fixed
 
@@ -72,6 +72,6 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 
 - UX: Icon added to the input search
 
-## 1.0.0
+### 1.0.0
 
 - Initial Release
