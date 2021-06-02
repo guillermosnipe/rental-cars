@@ -23,7 +23,7 @@ I've worked during the weekend on this assignment 10 hs approx (Unfortunately my
 * UX: Adding the svg to the imput and a spinner image to the input based on the state `isLoading` property to give visual clues to the user about what the site is doing.
 * Hooks and fetching data: It seems that I need to investigate way more, how the hooks and setting model properties inside a hook affect the performance.
 
-** Update: **
+**Update:**
 
 * SVG Added
 * Debouncing issue was fixed. The library was replaced with another one that supports cancelling to handle edge cases.
@@ -45,14 +45,35 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 
 ## Running the app locally
 
-* Executing `yarn install` will start the app using the default settings (`http://localhost:3000`);
+* Executing `yarn start` will start the app using the default settings (`http://localhost:3000`);
 
 ## Testing the App
 
 * `yarn test` will run the tests.
 
+---
 
 ## Changelog
+
+### 1.2.0
+
+### Added
+
+- Search Term component tests added.
+
+### Fixed
+
+- callSearchAPI throws an error on promise rejection.
+
+### 1.1.1
+
+### Added
+
+- Search Term component tests added.
+
+### Fixed
+
+- callSearchAPI throws an error on promise rejection.
 
 ### 1.1.1
 
