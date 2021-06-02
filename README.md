@@ -54,6 +54,12 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 
 ### Changelog
 
+## 1.1.1
+
+### Fixed
+
+- CSS search dropdown list width
+
 ## 1.1.0
 
 ### Fixed
