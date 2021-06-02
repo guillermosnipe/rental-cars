@@ -126,7 +126,7 @@ describe('callSearchAPI method', () => {
     testObject.callSearchAPI('ams');
   
     expect(spySearchAPI).toHaveBeenCalledWith('ams');
-    expect(spySearchAPI).toHaveBeenCalledTimes(1);
+    expect(spySearchAPI).toHaveBeenCalled();
   });
 });
 
