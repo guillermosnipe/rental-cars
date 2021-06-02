@@ -77,6 +77,16 @@ I just didn't want to deliver this App using Angular. I moved myself out of the 
 
 ### 1.1.1
 
+### Added
+
+- Search Term component tests added.
+
+### Fixed
+
+- callSearchAPI throws an error on promise rejection.
+
+### 1.1.1
+
 ### Fixed
 
 - CSS search dropdown list width
